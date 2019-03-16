@@ -276,7 +276,7 @@ html {
 body {
     margin: 0;
     font-size: 14px;
-    font-family: Helvetica Neue, Helvetica, STHeiTi, Arial, sans-serif;
+    font-family: Yahei Consolas Hybrid, Helvetica Neue, Helvetica, STHeiTi, Arial, sans-serif;
     line-height: 1.5;
     color: #333;
     background-color: #fff;
@@ -362,13 +362,11 @@ svg:not(:root) {
 
 pre {
     overflow: auto;
-    white-space: pre;
-    white-space: pre-wrap;
-    word-wrap: break-word
+    white-space: pre
 }
 
 code, kbd, pre, samp {
-    font-family: monospace, monospace;
+    font-family: Yahei Consolas Hybrid, monospace, monospace;
     font-size: 1em
 }
 
@@ -716,7 +714,7 @@ i {
 
 body, button, input, select, textarea {
     color: #1a1a1a;
-    font-family: lucida grande, lucida sans unicode, lucida, helvetica, Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif;
+    font-family: Yahei Consolas Hybrid, lucida grande, lucida sans unicode, lucida, helvetica, Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif;
     font-size: 16px;
     font-size: 1rem;
     line-height: 1.75
@@ -976,7 +974,7 @@ body {
 }
 
 .article-entry code, .article-entry pre {
-    font-family: Source Code Pro, Consolas, Monaco, Menlo, monospace
+    font-family: Yahei Consolas Hybrid, Source Code Pro, Consolas, Monaco, Menlo, monospace
 }
 
 .article-entry code {
@@ -1056,7 +1054,7 @@ body {
 
 .article-entry .gist .gist-file {
     border: none;
-    font-family: Source Code Pro, Consolas, Monaco, Menlo, monospace;
+    font-family: Yahei Consolas Hybrid, Source Code Pro, Consolas, Monaco, Menlo, monospace;
     margin: 0
 }
 
@@ -1149,7 +1147,7 @@ pre .css~* .id, pre .id {
     position: relative;
     border-radius: 0 5px 5px 0;
     margin: 5px 9px 5px 8px;
-    font-family: Menlo, Monaco, Andale Mono, lucida console, Courier New, monospace
+    font-family: Yahei Consolas Hybrid, Menlo, Monaco, Andale Mono, lucida console, Courier New, monospace
 }
 
 .tagcloud a:hover {
@@ -2154,8 +2152,9 @@ pre .css~* .id, pre .id {
     margin: 0 3px;
     background: #ddd;
     border: 1px solid #ccc;
-    font-family: Menlo, Monaco, Andale Mono, lucida console, Courier New, monospace;
-    word-wrap: break-word;
+    font-family: Yahei Consolas Hybrid, Menlo, Monaco, Andale Mono, lucida console, Courier New, monospace;
+   
+    word-wrap: normal|break-word; 
     font-size: 14px
 }
 
@@ -2258,7 +2257,7 @@ pre .css~* .id, pre .id {
     color: #657b83;
     border: 1px solid #ccc;
     text-shadow: 0 1px #444;
-    font-family: Menlo, Monaco, Andale Mono, lucida console, Courier New, monospace
+    font-family: Yahei Consolas Hybrid, Menlo, Monaco, Andale Mono, lucida console, Courier New, monospace
 }
 
 .article-entry pre code {
@@ -3273,7 +3272,7 @@ pre .css~* .id, pre .id {
     .header-author {
         text-align: center;
         margin: .67em 0;
-        font-family: Roboto, serif;
+        font-family: "Times New Roman", Roboto, serif;
         font-size: 30px;
         transition: .3s
     }
@@ -3930,11 +3929,56 @@ a.pswp__share--download:hover {
 
 /* 新添加的 */
 
-#container .show-toc-btn, #container .toc-article {
+#container .toc-article, #container .show-toc-btn {
     display: block
 }
 
+.show-toc-btn {
+    display: none;
+    z-index: 10;
+    width: 30px;
+    min-height: 14px;
+    overflow: hidden;
+    padding: 4px 6px 8px 5px;
+    border: 1px solid #ddd;
+    border-right: none;
+    position: fixed;
+    right: 4px;
+    text-align: center;
+    background-color: #f9f9f9
+}
+
+.show-toc-btn .btn-bg {
+    margin-top: 2px;
+    display: block;
+    width: 16px;
+    height: 14px;
+    background: url(http://7xtawy.com1.z0.glb.clouddn.com/show.png) no-repeat;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    background-size: 100%
+}
+
+.show-toc-btn .btn-text {
+    color: #999;
+    font-size: 12px
+}
+
+.show-toc-btn:hover {
+    cursor: pointer
+}
+
+.show-toc-btn:hover .btn-bg {
+    background-position: 0 -16px
+}
+
+.show-toc-btn:hover .btn-text {
+    font-size: 12px;
+    color: #ea8010
+}
+
 .toc-article {
+    display: none;
     z-index: 100;
     background: #fff;
     border: 1px solid #ccc;
@@ -4092,49 +4136,6 @@ a.pswp__share--download:hover {
     }
 }
 
-.show-toc-btn {
-    display: none;
-    z-index: 10;
-    width: 30px;
-    min-height: 14px;
-    overflow: hidden;
-    padding: 4px 6px 8px 5px;
-    border: 1px solid #ddd;
-    border-right: none;
-    position: fixed;
-    right: 4px;
-    text-align: center;
-    background-color: #f9f9f9
-}
-
-.show-toc-btn .btn-bg {
-    margin-top: 2px;
-    display: block;
-    width: 16px;
-    height: 14px;
-    background: url(http://7xtawy.com1.z0.glb.clouddn.com/show.png) no-repeat;
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    background-size: 100%
-}
-
-.show-toc-btn .btn-text {
-    color: #999;
-    font-size: 12px
-}
-
-.show-toc-btn:hover {
-    cursor: pointer
-}
-
-.show-toc-btn:hover .btn-bg {
-    background-position: 0 -16px
-}
-
-.show-toc-btn:hover .btn-text {
-    font-size: 12px;
-    color: #ea8010
-}
 
 .toc-article li ol, .toc-article li ul {
     margin-left: 30px;
