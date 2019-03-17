@@ -19,12 +19,10 @@
 <meta property="og:site_name" content="dianerta">
 <meta property="og:description" content="为什么要用数据库？直接用IO流操作的话，不方便修改数据文件里面的特定信息的修改操作">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://pco0x7gub.bkt.clouddn.com/blog/181104/J1dAGAHKid.jpg?imageslim">
-<meta property="og:updated_time" content="2019-03-15T01:42:54.639Z">
+<meta property="og:updated_time" content="2019-03-17T09:23:01.562Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL&amp;JDBC">
 <meta name="twitter:description" content="为什么要用数据库？直接用IO流操作的话，不方便修改数据文件里面的特定信息的修改操作">
-<meta name="twitter:image" content="http://pco0x7gub.bkt.clouddn.com/blog/181104/J1dAGAHKid.jpg?imageslim">
   
     <link rel="alternative" href="/atom.xml" title="dianerta" type="application/atom+xml">
   
@@ -1364,8 +1362,7 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	查询所有的数据</span></span><br><span class="line"><span class="comment">	吃饭支出 共计多少</span></span><br><span class="line"><span class="comment">	工资收入 共计多少</span></span><br><span class="line"><span class="comment">	服装支出 共计多少</span></span><br><span class="line"><span class="comment">	股票收入 共计多少</span></span><br><span class="line"><span class="comment">	打麻将支出 共计多少钱</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	分组查询:  group by 被分组的列名</span></span><br><span class="line"><span class="comment">	必须跟随聚合函数</span></span><br><span class="line"><span class="comment">	select 查询的时候,被分组的列,要出现在select 选择列的后面</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">SUM</span>(zmoney),zname <span class="keyword">FROM</span> zhangwu <span class="keyword">GROUP</span> <span class="keyword">BY</span> zname</span><br><span class="line">	</span><br><span class="line"><span class="comment">-- 对zname内容进行分组查询求和,但是只要支出</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">SUM</span>(zmoney)<span class="keyword">AS</span> <span class="string">'getsum'</span>,zname <span class="keyword">FROM</span> zhangwu <span class="keyword">WHERE</span> zname <span class="keyword">LIKE</span><span class="string">'%支出%'</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> zname</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> getsum <span class="keyword">DESC</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 对zname内容进行分组查询求和,但是只要支出, 显示金额大于5000</span></span><br><span class="line"><span class="comment">-- 结果集是分组查询后,再次进行筛选,不能使用where, 分组后再次过滤,关键字 having</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">SUM</span>(zmoney)<span class="keyword">AS</span> <span class="string">'getsum'</span>,zname <span class="keyword">FROM</span> zhangwu <span class="keyword">WHERE</span> zname <span class="keyword">LIKE</span><span class="string">'%支出%'</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> zname <span class="keyword">HAVING</span> getsum&gt;<span class="number">5000</span></span><br></pre></td></tr></table></figure>
-<h1 id="2-JDBC和数据库驱动程序"><a href="#2-JDBC和数据库驱动程序" class="headerlink" title="2. JDBC和数据库驱动程序"></a>2. JDBC和数据库驱动程序</h1><h2 id="2-1-JDBC概述"><a href="#2-1-JDBC概述" class="headerlink" title="2.1. JDBC概述"></a>2.1. JDBC概述</h2><p><img src="http://pco0x7gub.bkt.clouddn.com/blog/181104/J1dAGAHKid.jpg?imageslim" alt="JDBC机制"></p>
-<p>用JDBC使得java程序可以操作数据库，但是创建操作特定数据库的对象，需要对特定的数据库的编写原理的理解，所以创建对象的这一个任务就交给数据库公司，我们只需要使用提供的jar包（即驱动，即JDBC的一个实现类）即可。</p>
+<h1 id="2-JDBC和数据库驱动程序"><a href="#2-JDBC和数据库驱动程序" class="headerlink" title="2. JDBC和数据库驱动程序"></a>2. JDBC和数据库驱动程序</h1><h2 id="2-1-JDBC概述"><a href="#2-1-JDBC概述" class="headerlink" title="2.1. JDBC概述"></a>2.1. JDBC概述</h2><p>用JDBC使得java程序可以操作数据库，但是创建操作特定数据库的对象，需要对特定的数据库的编写原理的理解，所以创建对象的这一个任务就交给数据库公司，我们只需要使用提供的jar包（即驱动，即JDBC的一个实现类）即可。</p>
 <p>JDBC规范，是一组用Java语言编写的类和接口组成的，用于执行SQL语句的Java API。是java提供给开发人员的一套操作数据库的接口。JDBC（Java Data Base Connectivity,java数据库连接）可以为多种关系数据库提供统一访问，JDBC提供了一种基准,是Java访问数据库的标准规范。据此可以构建更高级的工具和接口，使数据库开发人员能够编写数据库应用程序。</p>
 <p>JDBC需要连接驱动，驱动是两个设备要进行通信，满足一定通信数据格式，数据格式由设备提供商规定，设备提供商为设备提供驱动软件，通过软件可以与该设备进行通信。即mysql实现JDBC的接口，编写了一个驱动</p>
 <p>数据库驱动就是实现该接口的实现类。我们使用的是mysql的驱动mysql-connector-java-5.1.39-bin.jar</p>
@@ -1543,7 +1540,7 @@ var _hmt = _hmt || [];
   <p><span>本文标题:</span><a href=".">SQL&amp;JDBC</a></p>
   <p><span>文章作者:</span><a href="/" title="访问dianerta的个人博客">dianerta</a></p>
   <p><span>发布时间:</span>2018年11月05日 - 17:58</p>
-  <p><span>最后更新:</span>2019年03月15日 - 09:42</p>
+  <p><span>最后更新:</span>2019年03月17日 - 17:23</p>
   <p><span>原始链接:</span><a href="/2018-11-03-SQL与JDBC/" title="SQL&amp;JDBC">https://www.dianerta.com/2018-11-03-SQL与JDBC/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://www.dianerta.com/2018-11-03-SQL与JDBC/" aria-label="复制成功！"></i></span>
   </p>
@@ -2074,7 +2071,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
                 <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
 
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
                 <!-- element will get class pswp__preloader--active when preloader is running -->
                 <div class="pswp__preloader">
                     <div class="pswp__preloader__icn">
