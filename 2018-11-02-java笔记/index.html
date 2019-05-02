@@ -36,7 +36,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://image.3001.net/images/20190323/15533120091689.png">
 <meta property="og:image" content="https://image.3001.net/images/20190323/15533120463410.png">
-<meta property="og:updated_time" content="2019-03-23T08:22:53.500Z">
+<meta property="og:updated_time" content="2019-04-25T14:44:02.529Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA NOTES">
 <meta name="twitter:description" content="java基础知识记录总结……">
@@ -1504,7 +1504,7 @@ var _hmt = _hmt || [];
 <h2 id="2-9-随机数"><a href="#2-9-随机数" class="headerlink" title="2.9. 随机数"></a>2.9. 随机数</h2><p><code>import java.util.Random;</code><br><code>Random ran = new Random();</code></p>
 <p>随机数的范围：是[0,names.length-1]<br><code>int index = ran.nextInt(names.length);</code></p>
 <h2 id="2-10-Scanner"><a href="#2-10-Scanner" class="headerlink" title="2.10. Scanner"></a>2.10. Scanner</h2><p><code>import java.util.Scanner;</code><br><code>Scanner sc = new Scanner(System.in);</code></p>
-<p><code>String s = nextLine();</code></p>
+<p><code>String s = sc.nextLine();</code></p>
 <h2 id="2-11-修饰符"><a href="#2-11-修饰符" class="headerlink" title="2.11. 修饰符"></a>2.11. 修饰符</h2><p><code>public</code> 权限修饰符，公共访问；类,方法,成员变量(当前类，相同包下不同的类（导入即视为相同包），不同包下的类)<br><code>protected</code> 权限修饰符，受保护访问；方法,成员变量(当前类，相同包下不同的类（导入即视为相同包），让子类对象使用)<br><code>default</code>    权限修饰符，默认访问；类,方法,成员变量(当前类，相同包下不同的类（导入即视为相同包）)<br><code>private</code> 权限修饰符，私有访问；方法,成员变量(当前类)<br><code>static</code> 静态修饰符    方法,成员变量<br><code>final</code> 最终修饰符     类,方法,成员变量,局部变量<br><code>abstract</code> 抽象修饰符  类 ,方法</p>
 <ol>
 <li><p>不能同时使用的修饰符<br> <code>abstract</code>与<code>private</code>，<code>abstract</code>与<code>static</code>，<code>abstract</code>与<code>final</code></p>
@@ -1911,7 +1911,7 @@ D：初始化值的问题
 <h2 id="4-3-super关键字"><a href="#4-3-super关键字" class="headerlink" title="4.3. super关键字"></a>4.3. super关键字</h2><ol>
 <li>子父类中构造方法的调用<br>在创建子类对象时，父类的构造方法会先执行，因为子类中所有构造方法的第一行有默认的隐式<code>super();</code>语句。<br>格式：<br> 调用本类中的构造方法<br> <code>this(实参列表);</code><br> 调用父类中的空参数构造方法<br> <code>super();</code><br> 调用父类中的有参数构造方法<br> <code>super(实参列表);</code></li>
 <li>子类中的构造方法为什么会有一句隐式的<code>super()</code>？<br> 原因：子类会继承父类中的内容，所以子类在初始化时，必须先到父类中去执行父类的初始化动作。这样，才可以使用父类中的内容。<br> 当父类中没有空参数构造方法时，子类的构造方法必须有显示的<code>super</code>语句，指定要访问的父类有参数构造方法。<br> 子类默认会调用父类的无参构造， 但如果父类没有无参构造，子类的构造方法继续调用父类的无参构造就会报错。<br> 因此子类构造方法的第一行需要调用父类的构造方法，既可以调用父类的无参构造，也可以调用父类的有参构造，这样语法上就不会报错。</li>
-<li>构造方法第一行,写<code>this()</code>还是<code>super()</code><br> <code>this()</code>是调用本类的构造方法,<code>super()</code>是调用父类的构造方法,且两条语句不能同时存在,保证子类的所有构造方法调用到父类的构造方法即可<br> 小结:<br> 无论如何,子类的所有构造方法,直接或间接必须调用到父类构造方法;<br> 子类的构造方法什么都不写,默认的构造方法第一行<code>super()</code></li>
+<li>构造方法第一行,写<code>this()</code>还是<code>super()</code><br> <code>this()</code>是调用本类的构造方法,<code>super()</code>是调用父类的构造方法,且两条语句不能同时存在,保证子类的所有构造方法调用到父类的构造方法即可<br> 小结:<br> 无论如何,子类的所有构造方法,直接或间接（this（）对应的构造方法里面的隐含的super（））必须调用到父类构造方法;<br> 子类的构造方法什么都不写,默认的构造方法第一行<code>super()</code></li>
 <li>如果子类的构造方法第一行写了this调用了本类其他构造方法，那么super调用父类的语句还有吗？<br> 这时是没有的，因为this()或者super(),只能定义在构造方法的第一行，因为初始化动作要先执行。</li>
 </ol>
 <h2 id="4-4-方法的可变参数"><a href="#4-4-方法的可变参数" class="headerlink" title="4.4. 方法的可变参数"></a>4.4. 方法的可变参数</h2><p>JDK1.5新的特性,方法的可变参数<br>前提: 方法参数数据类型确定,参数的个数任意<br>可变参数语法: <code>数据类型...变量名</code><br>可变参数,本质就是一个数组</p>
@@ -1945,7 +1945,7 @@ D：初始化值的问题
 <li>重写equals方法<br> 子类重写equals方法根据对象的属性值进行比较。<code>==</code>是一个比较运算符号,既可以比较基本数据类型,也可以比较引用数据类型,基本数据类型比较的是值,引用数据类型比较的是地址值<br> equals方法只能比较引用数据类型，equals内部也是用==来比较，只有重写后的equals方法比较的才是对象中的属性值</li>
 <li>注意equals方法接受的参数是object类型的，转换之后，不能使用自己的属性要向下转型<br> 转型之前参数判断该object对象是否是要转的类型，不判可能会出现类型转换异常<br> 记得转换前提条件：就是首先被转换的对象是用多态造出来的，才可以转回去</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>( <span class="keyword">this</span> == obj)&#123;<span class="comment">//地址一样，肯定一样</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>( obj == <span class="keyword">null</span>)&#123;<span class="comment">//参数为空就不需要再麻烦比较了</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>( obj <span class="keyword">instanceof</span> Person)&#123;</span><br><span class="line">        Person p = (Person)obj;<span class="comment">//注意不要这一步就得不到age属性</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.age ==  p.age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;	</span><br><span class="line">```			</span><br><span class="line"></span><br><span class="line">### 5.2.3. 主要方法二：toString方法</span><br><span class="line"></span><br><span class="line">输出语句中，写的是一个对象，默认调用的是该对象的toString方法，返回属性字符串</span><br><span class="line"></span><br><span class="line">toString方法返回该对象的字符串：对象的类型+@+内存地址值。</span><br><span class="line">Object类中的toString的核心代码</span><br><span class="line">`getClass().getName() + <span class="string">"@"</span> + Integer.toHexString(hashCode()) `</span><br><span class="line"></span><br><span class="line">开发中，没变要看到地址，经常需要按照对象的属性得到相应的字符串表现形式，因此也需要重写它。</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line"><span class="comment">//Eclipse中自动生成的toString</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Person [name="</span> + name + <span class="string">", age="</span> + age + <span class="string">"]"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>( <span class="keyword">this</span> == obj)&#123;<span class="comment">//地址一样，肯定一样</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>( obj == <span class="keyword">null</span>)&#123;<span class="comment">//参数为空就不需要再麻烦比较了</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>( obj <span class="keyword">instanceof</span> Person)&#123;</span><br><span class="line">        Person p = (Person)obj;<span class="comment">//注意不要这一步就得不到age属性</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.age ==  p.age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br><span class="line">```			</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 5.2.3. 主要方法二：toString方法</span><br><span class="line"></span><br><span class="line">输出语句中，写的是一个对象，默认调用的是该对象的toString方法，返回属性字符串</span><br><span class="line"></span><br><span class="line">toString方法返回该对象的字符串：对象的类型+@+内存地址值。</span><br><span class="line">Object类中的toString的核心代码</span><br><span class="line">`getClass().getName() + <span class="string">"@"</span> + Integer.toHexString(hashCode()) `</span><br><span class="line"></span><br><span class="line">开发中，没变要看到地址，经常需要按照对象的属性得到相应的字符串表现形式，因此也需要重写它。</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line"><span class="comment">//Eclipse中自动生成的toString</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Person [name="</span> + name + <span class="string">", age="</span> + age + <span class="string">"]"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="5-3-数组类-容器"><a href="#5-3-数组类-容器" class="headerlink" title="5.3. 数组类(容器)"></a>5.3. 数组类(容器)</h2><h3 id="5-3-1-小知识"><a href="#5-3-1-小知识" class="headerlink" title="5.3.1. 小知识"></a>5.3.1. 小知识</h3><ol>
 <li><p>数组概念：</p>
 <p>数组既可以存储基本数据类型，也可以存储引用数据类型。</p>
@@ -2719,7 +2719,7 @@ D：初始化值的问题
   <p><span>本文标题:</span><a href=".">JAVA NOTES</a></p>
   <p><span>文章作者:</span><a href="/" title="访问dianerta的个人博客">dianerta</a></p>
   <p><span>发布时间:</span>2018年11月09日 - 17:56</p>
-  <p><span>最后更新:</span>2019年03月23日 - 16:22</p>
+  <p><span>最后更新:</span>2019年04月25日 - 22:44</p>
   <p><span>原始链接:</span><a href="/2018-11-02-java笔记/" title="JAVA NOTES">https://www.dianerta.com/2018-11-02-java笔记/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://www.dianerta.com/2018-11-02-java笔记/" aria-label="复制成功！"></i></span>
   </p>
@@ -2928,7 +2928,7 @@ D：初始化值的问题
     <span id="busuanzi_container_site_uv">
         总访客: <span id="busuanzi_value_site_uv"></span>|
     </span>
-    <span class="post-count">博客全站共9篇文章，82.6k字</span>
+    <span class="post-count">博客全站共10篇文章，87.1k字</span>
 
     
     </div>
@@ -3152,6 +3152,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网页设计</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">搭建博客</a>
               </li>
              
               <li class="article-tag-list-item">
