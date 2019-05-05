@@ -1389,6 +1389,156 @@ var _hmt = _hmt || [];
 
   
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<article id="post-2019-05-05-linux远程连接采坑记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+
+
+    <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="linux远程连接采坑记录"><a href="#linux远程连接采坑记录" class="headerlink" title="linux远程连接采坑记录"></a>linux远程连接采坑记录</h1><h3 id="查看IP"><a href="#查看IP" class="headerlink" title="查看IP"></a>查看IP</h3><p>虽然方法很多，这个最清晰</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">home -I</span><br></pre></td></tr></table></figure>
+<h3 id="查看是否安装ssh服务"><a href="#查看是否安装ssh服务" class="headerlink" title="查看是否安装ssh服务"></a>查看是否安装ssh服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh localhost</span><br></pre></td></tr></table></figure>
+<p>出现下面就是没有安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh: connect to hostlocalhost port 22: Connection refused</span><br></pre></td></tr></table></figure>
+<h3 id="开启ssh"><a href="#开启ssh" class="headerlink" title="开启ssh"></a>开启ssh</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openssh-server</span><br><span class="line">service ssh start</span><br></pre></td></tr></table></figure>
+<p>查看ssh状态</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps –e | grep ssh</span><br></pre></td></tr></table></figure>
+<h3 id="重启ssh"><a href="#重启ssh" class="headerlink" title="重启ssh"></a>重启ssh</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/ssh restart</span><br></pre></td></tr></table></figure>
+<h3 id="远程登录指定端口"><a href="#远程登录指定端口" class="headerlink" title="远程登录指定端口"></a>远程登录指定端口</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -p xx user@ip</span><br></pre></td></tr></table></figure>
+<p><code>xx</code>为端口号,<code>user</code>为用户名,<code>ip</code>为要登陆的<code>ip</code></p>
+<h3 id="Ubuntu输入su提示认证失败的解决方法"><a href="#Ubuntu输入su提示认证失败的解决方法" class="headerlink" title="Ubuntu输入su提示认证失败的解决方法"></a>Ubuntu输入su提示认证失败的解决方法</h3><p>错误提示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">parallels@parallels-Parallels-Virtual-Platform:~/.ssh$ su</span><br><span class="line">密码： </span><br><span class="line">su：认证失败</span><br></pre></td></tr></table></figure>
+<p>Ubuntu安装后，<code>root</code>用户默认是被锁定了的，不允许登录，也不允许<code>su</code> 到 <code>root</code><br>对于桌面用户来说这个是为了增强安全性<br>作为服务器还是需要开启的</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">parallels@parallels-Parallels-Virtual-Platform:~/.ssh$ sudo passwd</span><br><span class="line">输入新的 UNIX 密码： </span><br><span class="line">重新输入新的 UNIX 密码： </span><br><span class="line">passwd：已成功更新密码</span><br></pre></td></tr></table></figure>
+<h3 id="SSH无法登陆"><a href="#SSH无法登陆" class="headerlink" title="SSH无法登陆"></a>SSH无法登陆</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ ssh dianerta@xx.xx.xx.xx</span><br><span class="line">dianerta@xx.xx.xx.xx<span class="string">'s password: </span></span><br><span class="line"><span class="string">Permission denied, please try again.</span></span><br></pre></td></tr></table></figure>
+<h4 id="第一个坑"><a href="#第一个坑" class="headerlink" title="第一个坑"></a>第一个坑</h4><p>是<strong>用户名不对</strong>，看一下终端的用户名是什么改过来，我的虚拟机自动设置的是<code>parallels</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ ssh root@xx.xx.xx.xx</span><br><span class="line">root@xx.xx.xx.xx<span class="string">'s password: </span></span><br><span class="line"><span class="string">Permission denied, please try again.</span></span><br></pre></td></tr></table></figure>
+<h4 id="第二个坑"><a href="#第二个坑" class="headerlink" title="第二个坑"></a>第二个坑</h4><p>是Ubuntu安装后，<strong><code>root</code>用户默认是被锁定了的</strong>，所以root也不能远程登录，注意此时在乌班图主机上也不可以直接切换root，见<code>Ubuntu输入su提示认证失败的解决方法</code></p>
+<h4 id="第三个坑"><a href="#第三个坑" class="headerlink" title="第三个坑"></a>第三个坑</h4><p>是密码正确，SSH的root依旧无法登陆。修改ssh改配置文件，<strong>设置为允许root远程登录</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:~<span class="comment"># vim /etc/ssh/sshd_config</span></span><br></pre></td></tr></table></figure>
+<p>将<code>PermitRootLogin prohibie-password</code> 修改为：<code>PermitRootLogin yes</code> 即可<br>同时去掉前面的注释<code>#</code></p>
+<p>保存退出，<strong>重启ssh服务</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:~<span class="comment"># /etc/init.d/ssh restart</span></span><br></pre></td></tr></table></figure>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><h4 id="查看22号端口是否开启"><a href="#查看22号端口是否开启" class="headerlink" title="查看22号端口是否开启"></a>查看22号端口是否开启</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ntlp|grep 22</span><br></pre></td></tr></table></figure>
+<h4 id="打开SSH服务，开启22端口，执行以下命令"><a href="#打开SSH服务，开启22端口，执行以下命令" class="headerlink" title="打开SSH服务，开启22端口，执行以下命令"></a>打开SSH服务，开启22端口，执行以下命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install ufw</span><br><span class="line">sudo ufw <span class="built_in">enable</span></span><br><span class="line">sudo ufw allow 22</span><br></pre></td></tr></table></figure>
+<p>UFW，即简单防火墙，是基于iptables实现的防火墙管理工具，所以实际上UFW修改的是iptables的规则。之所以不直接使用iptables，而要通过UFW进行管理是因为iptables的规则对于新手入门来说有点难，UFW做了很好的包装。</p>
+<p>一旦启用UFW之后，如果没有允许SSH连接，将无法再通过SSH远程访问主机，所以在开启防火墙之后要确认SSH连接已经设置为允许</p>
+<blockquote>
+<p>参考资料:<br><a href="http://notes.maxwi.com/2017/01/19/linux-command-tools-ufw/" target="_blank" rel="noopener">http://notes.maxwi.com/2017/01/19/linux-command-tools-ufw/</a></p>
+</blockquote>
+
+      
+
+      
+    </div>
+<!-- 版权的js -->
+
+
+
+
+
+    <div class="article-info article-info-index">
+      
+      
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019-05-05-linux远程连接采坑记录/">展开全文 >></a>
+        </p>
+      
+
+      
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+<!-- 版权的CSS -->
+
+<style type="text/css">
+.my_post_copyright {
+  width: 85%;
+  max-width: 45em;
+  margin: 2.8em auto 0;
+  padding: 0.5em 1.0em;
+  border: 1px solid #d3d3d3;
+  font-size: 0.93rem;
+  line-height: 1.6em;
+  word-break: break-all;
+  background: rgba(255,255,255,0.4);
+}
+.my_post_copyright p{margin:0;}
+.my_post_copyright span {
+  display: inline-block;
+  width: 5.2em;
+  color: #b5b5b5;
+  font-weight: bold;
+}
+.my_post_copyright .raw {
+  margin-left: 1em;
+  width: 5em;
+}
+.my_post_copyright a {
+  color: #808080;
+  border-bottom:0;
+}
+.my_post_copyright a:hover {
+  color: #a3d2a3;
+  text-decoration: underline;
+}
+.my_post_copyright:hover .fa-clipboard {
+  color: #000;
+}
+.my_post_copyright .post-url:hover {
+  font-weight: normal;
+}
+.my_post_copyright .copy-path {
+  margin-left: 1em;
+  width: 1em;
+  +mobile(){display:none;}
+}
+.my_post_copyright .copy-path:hover {
+  color: #808080;
+  cursor: pointer;
+}
+</style>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <article id="post-2019-4-30-leetcode" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -2715,174 +2865,6 @@ var _hmt = _hmt || [];
 </script>
 
   
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<article id="post-2018-11-02-java笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018-11-02-java笔记/">JAVA NOTES</a>
-    </h1>
-  
-
-        
-        <a href="/2018-11-02-java笔记/" class="archive-article-date">
-  	<time datetime="2018-11-09T09:56:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-09</time>
-</a>
-        
-        <br>
-        <span class="post-count"><b>【字数统计】：58.9k个</b></span>
-        <span class="post-count"><b>【阅读时长】：245分钟</b></span>
-
-        <span id="busuanzi_container_page_pv" style="display:none">
-        <b>【本文总阅读量】：<span id="busuanzi_value_page_pv"></span>次</b>
-        </span>
-
-
-      </header>
-    
-
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>java基础知识记录总结……<br>
-        
-          <a class="article-more-a" href="/2018-11-02-java笔记/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-<!-- 版权的js -->
-
-
-
-
-
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JAVA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习笔记//" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018-11-02-java笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-<!-- 版权的CSS -->
-
-<style type="text/css">
-.my_post_copyright {
-  width: 85%;
-  max-width: 45em;
-  margin: 2.8em auto 0;
-  padding: 0.5em 1.0em;
-  border: 1px solid #d3d3d3;
-  font-size: 0.93rem;
-  line-height: 1.6em;
-  word-break: break-all;
-  background: rgba(255,255,255,0.4);
-}
-.my_post_copyright p{margin:0;}
-.my_post_copyright span {
-  display: inline-block;
-  width: 5.2em;
-  color: #b5b5b5;
-  font-weight: bold;
-}
-.my_post_copyright .raw {
-  margin-left: 1em;
-  width: 5em;
-}
-.my_post_copyright a {
-  color: #808080;
-  border-bottom:0;
-}
-.my_post_copyright a:hover {
-  color: #a3d2a3;
-  text-decoration: underline;
-}
-.my_post_copyright:hover .fa-clipboard {
-  color: #000;
-}
-.my_post_copyright .post-url:hover {
-  font-weight: normal;
-}
-.my_post_copyright .copy-path {
-  margin-left: 1em;
-  width: 1em;
-  +mobile(){display:none;}
-}
-.my_post_copyright .copy-path:hover {
-  color: #808080;
-  cursor: pointer;
-}
-</style>
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -2910,7 +2892,7 @@ var _hmt = _hmt || [];
     <span id="busuanzi_container_site_uv">
         总访客: <span id="busuanzi_value_site_uv"></span>|
     </span>
-    <span class="post-count">博客全站共11篇文章，93.6k字</span>
+    <span class="post-count">博客全站共12篇文章，94.3k字</span>
 
     
     </div>
