@@ -26,18 +26,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Linux 常用命令 | dianerta</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="sudo -s -H:root登录  cat  cat命令连接文件并打印到标准输出设备上，cat经常用来显示文件的内容 ctrl+d 退出 cat &amp;gt; list1 cat &amp;gt;&amp;gt; list1 追加 cat list1 list2 &amp;gt; biglist sort &amp;lt; biglist &amp;gt; slist &amp;gt; 重定向输出 &amp;lt; 重定向输入 who 列出登录用户 w">
+  <meta name="description" content="Linux 常用易忘命令">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 常用命令">
 <meta property="og:url" content="http://yoursite.com/2018-07-01-Linux常用命令/index.html">
 <meta property="og:site_name" content="dianerta">
-<meta property="og:description" content="sudo -s -H:root登录  cat  cat命令连接文件并打印到标准输出设备上，cat经常用来显示文件的内容 ctrl+d 退出 cat &amp;gt; list1 cat &amp;gt;&amp;gt; list1 追加 cat list1 list2 &amp;gt; biglist sort &amp;lt; biglist &amp;gt; slist &amp;gt; 重定向输出 &amp;lt; 重定向输入 who 列出登录用户 w">
+<meta property="og:description" content="Linux 常用易忘命令">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-01T14:12:30.333Z">
+<meta property="og:updated_time" content="2019-08-10T10:43:45.352Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 常用命令">
-<meta name="twitter:description" content="sudo -s -H:root登录  cat  cat命令连接文件并打印到标准输出设备上，cat经常用来显示文件的内容 ctrl+d 退出 cat &amp;gt; list1 cat &amp;gt;&amp;gt; list1 追加 cat list1 list2 &amp;gt; biglist sort &amp;lt; biglist &amp;gt; slist &amp;gt; 重定向输出 &amp;lt; 重定向输入 who 列出登录用户 w">
+<meta name="twitter:description" content="Linux 常用易忘命令">
   
     <link rel="alternative" href="/atom.xml" title="dianerta" type="application/atom+xml">
   
@@ -1266,7 +1266,7 @@ var _hmt = _hmt || [];
 </a>
         
         <br>
-        <span class="post-count"><b>【字数统计】：721个</b></span>
+        <span class="post-count"><b>【字数统计】：731个</b></span>
         <span class="post-count"><b>【阅读时长】：2分钟</b></span>
 
         <span id="busuanzi_container_page_pv" style="display:none">
@@ -1310,7 +1310,7 @@ var _hmt = _hmt || [];
 
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
+        <p>Linux 常用易忘命令<br><a id="more"></a></p>
 <p><code>sudo -s -H</code>:root登录</p>
 <ol>
 <li><code>cat</code>  cat命令连接文件并打印到标准输出设备上，cat经常用来显示文件的内容<br> ctrl+d 退出</li>
@@ -1340,68 +1340,21 @@ var _hmt = _hmt || [];
 <li>history 命令使用记录</li>
 <li>!! 上一个命令<br>!-3 倒数第三个<br>!5 正数第五个<br>!grep 包含grep的命令</li>
 <li>set history = 100 设置历史容量</li>
-<li><p>安装软件</p>
-<ul>
-<li>解压<br>  gunzip file.tar.gz<br>  tar -xvf file.tar</li>
-<li><p>编译</p>
-<pre><code>GNU configure system默认会编译输出到根目录，没有权限，所以在家目录创建一个文件夹
-进入包含源代码的文件夹
-
-设置安装路径
-$ ./configure --prefix=$HOME/units174
-若提示没有c，安装即可
-sudo install apt gcc
-创建成功之后文件夹里面会有Makefile文件
-</code></pre></li>
-<li><p>生成</p>
-<pre><code>$ make
-若提示没有make,输入sudo apt install make
-
-$ make check
-检测是否成功
-
-$ make install
-安装到指定目录
-</code></pre></li>
-<li><p>执行</p>
-<pre><code>进入对应文件夹的bin目录运行即可
-</code></pre></li>
-</ul>
-</li>
-<li><p>设置环境变量<br>$ sudo vim /etc/environment修改PATH需要root权限，注意值之间相隔冒号不是分号<br>$ source /etc/environment<br>更改之后需要shell重新读取</p>
-<p>$ env 展示当前环境变量<br>$ NAME = dianerta 设置环境变量<br>$ echo $PATH 查看变量内容<br>$ unset NAME 移除变量<br>$ export Variable=value 设置环境变量的值</p>
-</li>
-<li><p>设置history历史记录数<br>set history = 100 只对当前终端有效</p>
-<p>$ vim ~/.bashrc<br>修改此文件可以永久修改  HISTSIZE from 1000 to 10</p>
-<p>修改之后不重启终端就使shell重新读取该文件<br>$ source ~/.bashhrc</p>
-</li>
-<li><p>vi，vim<br>命令行模式</p>
-<pre><code>插入
-    i 光标位置
-    a 光标后
-    A 光标行末
-    o 光标下新行
-删除
-    dd 光标行
-    3dd 光标下三行
-    D 光标后行内容
-    C 光标后行内容并插入模式
-    dw 删单词
-    4dw 删四个单词
-    cw 改单词
-    x 删除光标位置单词
-撤销
-    u 上一个
-    U 所有
-保存
-    :w 保存不退出
-    :q 不保存退出  ！
-    :wq等价于shift+zz: 保存退出
-</code></pre><p>插入模式</p>
-<pre><code>esc
-</code></pre></li>
+<li>安装软件</li>
 </ol>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">- 解压 </span><br><span class="line">    gunzip file.tar.gz</span><br><span class="line">    tar -xvf file.tar</span><br><span class="line">- 编译</span><br><span class="line">        GNU configure system默认会编译输出到根目录，没有权限，所以在家目录创建一个文件夹</span><br><span class="line">        进入包含源代码的文件夹</span><br><span class="line">        </span><br><span class="line">        设置安装路径</span><br><span class="line">        $ ./configure --prefix=$HOME/units174</span><br><span class="line">        若提示没有c，安装即可</span><br><span class="line">        sudo install apt gcc</span><br><span class="line">        创建成功之后文件夹里面会有Makefile文件</span><br><span class="line"></span><br><span class="line">- 生成</span><br><span class="line">        $ make</span><br><span class="line">        若提示没有make,输入sudo apt install make</span><br><span class="line"></span><br><span class="line">        $ make check</span><br><span class="line">        检测是否成功</span><br><span class="line"></span><br><span class="line">        $ make install</span><br><span class="line">        安装到指定目录</span><br><span class="line"></span><br><span class="line">- 执行</span><br><span class="line">        进入对应文件夹的bin目录运行即可</span><br></pre></td></tr></table></figure>
+<ol start="30">
+<li>设置环境变量</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/environment修改PATH需要root权限，注意值之间相隔冒号不是分号</span><br><span class="line">$ source /etc/environment</span><br><span class="line">更改之后需要shell重新读取</span><br><span class="line"></span><br><span class="line">$ env 展示当前环境变量</span><br><span class="line">$ NAME = dianerta 设置环境变量</span><br><span class="line">$ echo $PATH 查看变量内容</span><br><span class="line">$ unset NAME 移除变量</span><br><span class="line">$ export Variable=value 设置环境变量的值</span><br></pre></td></tr></table></figure>
+<ol start="31">
+<li>设置history历史记录数</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">set history = 100 只对当前终端有效</span><br><span class="line"></span><br><span class="line">$ vim ~/.bashrc</span><br><span class="line">修改此文件可以永久修改  HISTSIZE from 1000 to 10</span><br><span class="line"></span><br><span class="line">修改之后不重启终端就使shell重新读取该文件</span><br><span class="line">$ source ~/.bashhrc</span><br></pre></td></tr></table></figure>
+<ol start="32">
+<li>vi，vim</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">命令行模式</span><br><span class="line">    插入</span><br><span class="line">        i 光标位置</span><br><span class="line">        a 光标后</span><br><span class="line">        A 光标行末</span><br><span class="line">        o 光标下新行</span><br><span class="line">    删除</span><br><span class="line">        dd 光标行</span><br><span class="line">        3dd 光标下三行</span><br><span class="line">        D 光标后行内容</span><br><span class="line">        C 光标后行内容并插入模式</span><br><span class="line">        dw 删单词</span><br><span class="line">        4dw 删四个单词</span><br><span class="line">        cw 改单词</span><br><span class="line">        x 删除光标位置单词</span><br><span class="line">    撤销</span><br><span class="line">        u 上一个</span><br><span class="line">        U 所有</span><br><span class="line">    保存</span><br><span class="line">        :w 保存不退出</span><br><span class="line">        :q 不保存退出  ！</span><br><span class="line">        :wq等价于shift+zz: 保存退出</span><br><span class="line">插入模式</span><br><span class="line">    esc</span><br></pre></td></tr></table></figure>
       
 
       
@@ -1451,7 +1404,7 @@ $ make install
   <p><span>本文标题:</span><a href=".">Linux 常用命令</a></p>
   <p><span>文章作者:</span><a href="/" title="访问dianerta的个人博客">dianerta</a></p>
   <p><span>发布时间:</span>2019年07月01日 - 21:19</p>
-  <p><span>最后更新:</span>2019年07月01日 - 22:12</p>
+  <p><span>最后更新:</span>2019年08月10日 - 18:43</p>
   <p><span>原始链接:</span><a href="/2018-07-01-Linux常用命令/" title="Linux 常用命令">https://www.dianerta.com/2018-07-01-Linux常用命令/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://www.dianerta.com/2018-07-01-Linux常用命令/" aria-label="复制成功！"></i></span>
   </p>
@@ -1660,7 +1613,7 @@ $ make install
     <span id="busuanzi_container_site_uv">
         总访客: <span id="busuanzi_value_site_uv"></span>|
     </span>
-    <span class="post-count">博客全站共20篇文章，114.2k字</span>
+    <span class="post-count">博客全站共19篇文章，114.2k字</span>
 
     
     </div>
@@ -1895,7 +1848,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">GitHub</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1904,14 +1861,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">代码规范</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">GitHub</a>
               </li>
              
               <li class="article-tag-list-item">
