@@ -35,7 +35,7 @@
 <meta property="og:description" content="Vagrant让虚拟机的创建和使用，环境的搭建更加高效Docker则是实现相同功能，但是比Vagrant更加轻量级的工具简单点讲，Vagrant就是你的开发环境的部署工具；而docker是你的运行环境部署工具。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://image.3001.net/images/20190509/15573632014327.png">
-<meta property="og:updated_time" content="2019-05-09T09:41:33.259Z">
+<meta property="og:updated_time" content="2019-06-15T15:44:55.807Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker学习笔记">
 <meta name="twitter:description" content="Vagrant让虚拟机的创建和使用，环境的搭建更加高效Docker则是实现相同功能，但是比Vagrant更加轻量级的工具简单点讲，Vagrant就是你的开发环境的部署工具；而docker是你的运行环境部署工具。">
@@ -1139,6 +1139,10 @@ var _hmt = _hmt || [];
 			
 				<li><a href="/categories/学习笔记">学习笔记</a></li>
 	        
+				<li><a href="/categories/读书笔记">读书笔记</a></li>
+	        
+				<li><a href="/categories/算法刷题">算法刷题</a></li>
+	        
 				<li><a href="/categories/资源分享">资源分享</a></li>
 	        
 				<li><a href="/categories/随笔">随笔</a></li>
@@ -1165,9 +1169,7 @@ var _hmt = _hmt || [];
 				
 					<a class="github" target="_blank" href="https://github.com/dianerta" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="bilibili" target="_blank" href="https://space.bilibili.com/261577836" title="bilibili"><i class="icon-bilibili"></i></a>
-		        
-					<a class="mail" target="_blank" href="mailto:736514834@qq.com" title="mail"><i class="icon-mail"></i></a>
+					<a class="mail" target="_blank" href="mailto:dianerta@163.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -1203,6 +1205,10 @@ var _hmt = _hmt || [];
 			
 				
 			
+				
+			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -1210,9 +1216,7 @@ var _hmt = _hmt || [];
 					
 						<a class="github" target="_blank" href="https://github.com/dianerta" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="bilibili" target="_blank" href="https://space.bilibili.com/261577836" title="bilibili"><i class="icon-bilibili"></i></a>
-			        
-						<a class="mail" target="_blank" href="mailto:736514834@qq.com" title="mail"><i class="icon-mail"></i></a>
+						<a class="mail" target="_blank" href="mailto:dianerta@163.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -1221,13 +1225,17 @@ var _hmt = _hmt || [];
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 25%"><a href="/categories/学习笔记">学习笔记</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/学习笔记">学习笔记</a></li>
 		        
-					<li style="width: 25%"><a href="/categories/资源分享">资源分享</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/读书笔记">读书笔记</a></li>
 		        
-					<li style="width: 25%"><a href="/categories/随笔">随笔</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/算法刷题">算法刷题</a></li>
 		        
-					<li style="width: 25%"><a href="/books">书单</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/资源分享">资源分享</a></li>
+		        
+					<li style="width: 16.666666666666668%"><a href="/categories/随笔">随笔</a></li>
+		        
+					<li style="width: 16.666666666666668%"><a href="/books">书单</a></li>
 		        
 				</ul>
 			</nav>
@@ -1603,12 +1611,6 @@ var _hmt = _hmt || [];
 <p>挂载一个本地主机文件作为数据卷<br><code>--mount</code>标记也可以从主机挂载单个文件到容器中</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ docker run --rm -it \</span><br><span class="line">   <span class="comment"># -v $HOME/.bash_history:/root/.bash_history \</span></span><br><span class="line">   --mount <span class="built_in">type</span>=<span class="built_in">bind</span>,<span class="built_in">source</span>=<span class="variable">$HOME</span>/.bash_history,target=/root/.bash_history \</span><br><span class="line">   ubuntu:18.04 \</span><br><span class="line">   bash</span><br><span class="line"></span><br><span class="line">root@2affd44b4667:/<span class="comment"># history</span></span><br><span class="line">1  ls</span><br><span class="line">2  diskutil list</span><br></pre></td></tr></table></figure>
 <p>这样就可以记录在容器输入过的命令了。</p>
-<p>###</p>
-<p>###</p>
-<p>###</p>
-<p>###</p>
-<p>###</p>
-<p>###</p>
 <h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>如果你不想使用 127.0.0.1:5000 作为仓库地址，比如想让本网段的其他主机也能把镜像推送到私有仓库。你就得把例如 192.168.199.100:5000 这样的内网地址作为私有仓库地址，这时你会发现无法成功推送镜像。</p>
 <p>这是因为 Docker 默认不允许非 HTTPS 方式推送镜像。我们可以通过 Docker 的配置选项来取消这个限制，或者查看下一节配置能够通过 HTTPS 访问的私有仓库。</p>
 
@@ -1661,7 +1663,7 @@ var _hmt = _hmt || [];
   <p><span>本文标题:</span><a href=".">docker学习笔记</a></p>
   <p><span>文章作者:</span><a href="/" title="访问dianerta的个人博客">dianerta</a></p>
   <p><span>发布时间:</span>2019年05月07日 - 14:32</p>
-  <p><span>最后更新:</span>2019年05月09日 - 17:41</p>
+  <p><span>最后更新:</span>2019年06月15日 - 23:44</p>
   <p><span>原始链接:</span><a href="/2019-05-09-docker/" title="docker学习笔记">https://www.dianerta.com/2019-05-09-docker/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://www.dianerta.com/2019-05-09-docker/" aria-label="复制成功！"></i></span>
   </p>
@@ -1870,7 +1872,7 @@ var _hmt = _hmt || [];
     <span id="busuanzi_container_site_uv">
         总访客: <span id="busuanzi_value_site_uv"></span>|
     </span>
-    <span class="post-count">博客全站共15篇文章，109.3k字</span>
+    <span class="post-count">博客全站共20篇文章，114.2k字</span>
 
     
     </div>
@@ -2085,6 +2087,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">基本配置</a>
               </li>
              
@@ -2101,6 +2107,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">代码规范</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
@@ -2110,6 +2128,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Vagrant</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法刷题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
