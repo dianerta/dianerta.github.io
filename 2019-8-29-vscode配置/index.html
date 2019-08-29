@@ -24,15 +24,22 @@
     }
 </style>
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: JAVA | dianerta</title>
+  <title>vscode Configuration And Use | dianerta</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="dianerta">
-<meta property="og:url" content="http://yoursite.com/tags/JAVA/index.html">
+  <meta name="description" content="初次使用vscode以及一些常用的快捷键">
+<meta name="keywords" content="基本配置,vscode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vscode Configuration And Use">
+<meta property="og:url" content="http://yoursite.com/2019-8-29-vscode配置/index.html">
 <meta property="og:site_name" content="dianerta">
+<meta property="og:description" content="初次使用vscode以及一些常用的快捷键">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://pi84apbxv.bkt.clouddn.com/Ft1II-WapaxtvFejhadOxABX7_ca">
+<meta property="og:updated_time" content="2019-08-29T09:26:05.876Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="dianerta">
+<meta name="twitter:title" content="vscode Configuration And Use">
+<meta name="twitter:description" content="初次使用vscode以及一些常用的快捷键">
+<meta name="twitter:image" content="http://pi84apbxv.bkt.clouddn.com/Ft1II-WapaxtvFejhadOxABX7_ca">
   
     <link rel="alternative" href="/atom.xml" title="dianerta" type="application/atom+xml">
   
@@ -1243,48 +1250,183 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<article id="post-2019-8-29-vscode配置" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018-11-02-java笔记/" class="archive-article-date">
-  	<time datetime="2018-11-09T09:56:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-09</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018-11-02-java笔记/">JAVA NOTES</a>
+    <h1 class="article-title" itemprop="name">
+      vscode Configuration And Use
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019-8-29-vscode配置/" class="archive-article-date">
+  	<time datetime="2019-05-20T17:51:08.722Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-21</time>
+</a>
+        
+        <br>
+        <span class="post-count"><b>【字数统计】：456个</b></span>
+        <span class="post-count"><b>【阅读时长】：1分钟</b></span>
+
+        <span id="busuanzi_container_page_pv" style="display:none">
+        <b>【本文总阅读量】：<span id="busuanzi_value_page_pv"></span>次</b>
+        </span>
+
+
+      </header>
+    
+
+
+    <!-- 目录内容 -->
+
+<div>
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+</div>
+  <div id="toc-article" class="toc-article" style="display:none">
+      <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+    <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#设置语言"><span class="toc-number">1.</span> <span class="toc-text">设置语言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自动保存"><span class="toc-number">2.</span> <span class="toc-text">自动保存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#整体显示放大与缩小"><span class="toc-number">3.</span> <span class="toc-text">整体显示放大与缩小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字号调节"><span class="toc-number">4.</span> <span class="toc-text">字号调节</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字体修改"><span class="toc-number">5.</span> <span class="toc-text">字体修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装powermode打字效果"><span class="toc-number">6.</span> <span class="toc-text">安装powermode打字效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装md插件-Markdown-All-in-One"><span class="toc-number">7.</span> <span class="toc-text">安装md插件 Markdown All in One</span></a></li></ol>
+         </div>
+   <script type="text/javascript">
+  function showToc(){
+    var toc_article = document.getElementById("toc-article");
+    var show_toc_btn = document.getElementById("show-toc-btn");
+    toc_article.setAttribute("style","display:block");
+    show_toc_btn.setAttribute("style","display:none");
+    };
+  function showBtn(){
+    var toc_article = document.getElementById("toc-article");
+    var show_toc_btn = document.getElementById("show-toc-btn");
+    toc_article.setAttribute("style","display:none");
+    show_toc_btn.setAttribute("style","display:block");
+    };
+   </script>
+      
+<!-- 目录内容结束 -->
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>初次使用vscode以及一些常用的快捷键<br><a id="more"></a></p>
+<h2 id="设置语言"><a href="#设置语言" class="headerlink" title="设置语言"></a>设置语言</h2><p>使用快捷键<code>Ctrl+Shift+p</code>，在搜索框中输入“configure display language“，点击确定后。修改locale.json文件下的属性“locale”为“zh-CN”</p>
+<p>重启vscode工具<br>如果重启后vscode菜单等仍然是英文显示，在商店把中文插件重新安装一遍，扩展中搜索Chinese（Simplied），安装即可</p>
+<h2 id="自动保存"><a href="#自动保存" class="headerlink" title="自动保存"></a>自动保存</h2><p>单击<code>文件</code>–<code>首选项</code>–<code>设置</code>。现在的vscode已经可以不打开配置文件就可以设置的图形化界面，但是还是使用下面修改配置文件比较好。<br>如图所示打开配置文件：<br><img src="http://pi84apbxv.bkt.clouddn.com/Ft1II-WapaxtvFejhadOxABX7_ca" alt><br>左侧为默认，需要修改的复制在右侧修改后会自动覆盖左侧。</p>
+<p>右侧输入<code>&quot;files.autoSave&quot;: &quot;afterDelay&quot;,</code>，表示：文件修改后的时间超过 <code>files.autoSaveDelay</code> 中配置的值时自动进行保存。</p>
+<p>按<code>Ctrl+F</code>搜索<code>files.autoSaveDelay</code>，即可找到此配置，修改为1000，默认应该是1000。</p>
+<h2 id="整体显示放大与缩小"><a href="#整体显示放大与缩小" class="headerlink" title="整体显示放大与缩小"></a>整体显示放大与缩小</h2><p>放大：<code>Ctrl+</code><br>缩小：<code>Ctrl-</code></p>
+<h2 id="字号调节"><a href="#字号调节" class="headerlink" title="字号调节"></a>字号调节</h2><p>单击<code>文件</code>–<code>首选项</code>–<code>设置</code>，打开配置文件，输入<code>&quot;editor.fontSize&quot;: 25,</code></p>
+<h2 id="字体修改"><a href="#字体修改" class="headerlink" title="字体修改"></a>字体修改</h2><ol>
+<li>推荐Consolas+雅黑混合版，<a href="https://pan.baidu.com/s/1nwgLCunGFfcr_kp8Kke5Mw" target="_blank" rel="noopener">下载链接</a>密码：srxh，双击安装即可</li>
+<li>单击<code>文件</code>–<code>首选项</code>–<code>设置</code>，打开配置文件，输入<code>&quot;editor.fontFamily&quot;: &quot;YaHei Consolas Hybrid&quot;</code>，若是最后一个则最后一个不加<code>,</code>，保存即可</li>
+</ol>
+<h2 id="安装powermode打字效果"><a href="#安装powermode打字效果" class="headerlink" title="安装powermode打字效果"></a>安装powermode打字效果</h2><p>点击查看扩展，搜索安装powermode，<br>单击<code>文件</code>–<code>首选项</code>–<code>设置</code>，打开配置文件，修改为如下最合适，屏幕一直震动不适合编辑</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;powermode.enabled&quot;: true,</span><br><span class="line">&quot;powermode.enableShake&quot;: false,</span><br></pre></td></tr></table></figure>
+<h2 id="安装md插件-Markdown-All-in-One"><a href="#安装md插件-Markdown-All-in-One" class="headerlink" title="安装md插件 Markdown All in One"></a>安装md插件 Markdown All in One</h2><p>可以支持一些加粗等等快捷键，在下载页面有使用说明</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+<!-- 版权的js -->
+
+
+
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href=".">vscode Configuration And Use</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问dianerta的个人博客">dianerta</a></p>
+  <p><span>发布时间:</span>2019年05月21日 - 01:51</p>
+  <p><span>最后更新:</span>2019年08月29日 - 17:26</p>
+  <p><span>原始链接:</span><a href="/2019-8-29-vscode配置/" title="vscode Configuration And Use">https://www.dianerta.com/2019-8-29-vscode配置/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://www.dianerta.com/2019-8-29-vscode配置/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-相同方式共享 4.0 </a> 转载请保留原文链接及作者。</p>  
+
+  <div align="center"><img src="/img/publicmini.jpg" alt="dianerta的公众号"><br><span>dianerta公众号</span></div>
+
+
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	});
+    });  
+</script>
+
+
+
+
+      
+
+
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JAVA</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">基本配置</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vscode</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -1297,17 +1439,135 @@ var _hmt = _hmt || [];
 	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+
+      
+
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019-06-14-Git&GitHub/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Git&amp;GitHub学习笔记
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2019-05-08-Vagrant学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Vagrant学习笔记</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
 
     
+    <section id="comments" style="margin:10px;padding:10px;background:#fff;">
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'true' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "7hW5J59bSjsqWTHgT167qxtC-gzGzoHsz",
+            app_key: "Lpq5UftHQf0PFwBG4PAN8D6w",
+            placeholder: "写下你的看法，大家一起交流",
+            avatar:"identicon"
+        });
+    }
+</script>
+    </section>
+  
+
+
+
+
+<!-- 版权的CSS -->
+
+<style type="text/css">
+.my_post_copyright {
+  width: 85%;
+  max-width: 45em;
+  margin: 2.8em auto 0;
+  padding: 0.5em 1.0em;
+  border: 1px solid #d3d3d3;
+  font-size: 0.93rem;
+  line-height: 1.6em;
+  word-break: break-all;
+  background: rgba(255,255,255,0.4);
+}
+.my_post_copyright p{margin:0;}
+.my_post_copyright span {
+  display: inline-block;
+  width: 5.2em;
+  color: #b5b5b5;
+  font-weight: bold;
+}
+.my_post_copyright .raw {
+  margin-left: 1em;
+  width: 5em;
+}
+.my_post_copyright a {
+  color: #808080;
+  border-bottom:0;
+}
+.my_post_copyright a:hover {
+  color: #a3d2a3;
+  text-decoration: underline;
+}
+.my_post_copyright:hover .fa-clipboard {
+  color: #000;
+}
+.my_post_copyright .post-url:hover {
+  font-weight: normal;
+}
+.my_post_copyright .copy-path {
+  margin-left: 1em;
+  width: 1em;
+  +mobile(){display:none;}
+}
+.my_post_copyright .copy-path:hover {
+  color: #808080;
+  cursor: pointer;
+}
+</style>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
 
 
           </div>
@@ -1479,9 +1739,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
